@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+logging:
+  level:
+    com:
+      aqzscn:
+        lonely: info
+  file:
+    path: ${user.home}/mydebug/lonely/log
+server:
+  port: 525
