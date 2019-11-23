@@ -21,7 +21,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         // 解析请求头中的token信息
-        Enumeration<String> headers = req.getHeaders("token");
+        Enumeration<String> headers = req.getHeaders("Authorization");
         String token = "";
         if (headers != null && headers.hasMoreElements()) {
             token = headers.nextElement();

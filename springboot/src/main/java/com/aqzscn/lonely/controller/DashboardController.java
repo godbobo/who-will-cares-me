@@ -36,4 +36,18 @@ public class DashboardController {
         }
     }
 
+    @GetMapping("/user-state")
+    public ReturnVo login(HttpServletRequest request) throws AppException {
+        String token = (String) request.getAttribute("token");
+        if (StringUtils.isNotBlank(token)) {
+            if (token.equals(GlobalCaches.token)) {
+                return ReturnVo.success();
+            } else {
+                throw AppException.of(HttpServletResponse.SC_FORBIDDEN);
+            }
+        } else {
+            throw AppException.of(HttpServletResponse.SC_UNAUTHORIZED);
+        }
+    }
+
 }
