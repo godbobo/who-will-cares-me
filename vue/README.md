@@ -1,8 +1,8 @@
-# vue
+# Who will cares me
 
-> Do some boring things,who will cares me?
+> "谁会关心我？"的前端项目，以网页的形式向他人展示自己的状态。
 
-## Build Setup
+## 安装步骤
 
 ``` bash
 # install dependencies
@@ -18,4 +18,4 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 功能简介
