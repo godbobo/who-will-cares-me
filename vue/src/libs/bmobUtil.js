@@ -1,4 +1,4 @@
-import Bmob from '@/libs/Bmob-2.2.1.min'
+/* eslint-disable no-undef */
 import * as config from '@/config'
 
 /**

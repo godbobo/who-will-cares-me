@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <transition name="el-zoom-in-top">
-      <h1 v-show="titleVisible" class="site-title">{{ appTitle }}</h1>
-    </transition>
+    <h1 class="site-title">{{ appTitle }}</h1>
   </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
   name: 'index',
   data () {
@@ -20,7 +20,30 @@ export default {
     }
   },
   mounted () {
-    this.titleVisible = true
+    this.handleAppInfo()
+  },
+  methods: {
+    ...mapActions([
+      'getAppInfo'
+    ]),
+    async handleAppInfo () {
+      // 全屏显示加载中状态
+      const loading = this.$loading({
+        lock: true,
+        text: '加载中',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
+      })
+      try {
+        const { data } = await this.getAppInfo()
+        this.$store.commit('SET_SHOW_DATA', data)
+      } catch (e) {
+        console.error(e)
+      } finally {
+        loading.close()
+        this.titleVisible = true
+      }
+    }
   }
 }
 </script>
