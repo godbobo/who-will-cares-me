@@ -28,7 +28,7 @@ public class AuthenticationFilter implements Filter {
             req.setAttribute("token", token);
         }
         // 对特殊路径的和有管理员权限的请求放行，而其他的则进行拦截
-        if (GlobalCaches.isOpen || GlobalCaches.token.equals(token) || (req.getRequestURI().equals("/dhb/state") && req.getMethod().equals(RequestMethod.GET.name()))) {
+        if (GlobalCaches.isOpen || GlobalCaches.token.equals(token) || (req.getRequestURI().equals("/dhb/state") && req.getMethod().equals(RequestMethod.GET.name())) || req.getRequestURI().contains("/wbskt/")) {
             chain.doFilter(request, response);
         } else {
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
