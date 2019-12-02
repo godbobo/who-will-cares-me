@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 
 export default {
   name: 'index',
@@ -15,12 +15,25 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      baseUrl: state => state.app.baseUrl
+    }),
     appTitle () {
       return this.$config.appTitle
     }
   },
   mounted () {
-    this.handleAppInfo()
+    setTimeout(() => {
+      this.handleAppInfo()
+      let startIndex = this.baseUrl.indexOf('//')
+      let wsUrl = this.baseUrl
+      if (startIndex > 0) {
+        startIndex += 2
+        wsUrl = this.baseUrl.substr(startIndex)
+      }
+      const uuid = this.$helper.guid()
+      this.$connect(`ws://${wsUrl}wbskt/${this.$config.appName}${uuid}`)
+    }, this.$config.loadDelaySeconds || 100)
   },
   methods: {
     ...mapActions([

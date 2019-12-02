@@ -6,7 +6,7 @@ export const bmobKey = '123456'
 export const homeName = 'index'
 
 // 应用名称
-export const appName = 'wwcm'
+export const appName = 'wwcmvue'
 
 export const appTitle = '谁会关心我？'
 
@@ -17,4 +17,9 @@ export const port = {
 }
 
 // 锁屏提示文字
-export const lockTips = '心门已经关上，哼！'
+export const lockTips = '您要访问的对象心门已经关闭，谁也无法打开了'
+// 解锁提示文字
+export const unlockTips = '不知怎么的，你感化了这个人，Ta像你敞开了心门～～～'
+
+// 是否减慢页面加载时间为了更好的展示效果
+export const loadDelaySeconds = 1000

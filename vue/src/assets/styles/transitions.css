@@ -1,0 +1,9 @@
+/* 定义过渡动画 */
+
+.blur-enter-active, .blur-leave-active {
+  transition: filter 0.5s;
+}
+
+.blur-enter, .blur-leave-to {
+  filter: blur(0px);
+}
