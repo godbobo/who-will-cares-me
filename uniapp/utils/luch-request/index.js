@@ -33,7 +33,6 @@ http.interceptor.request((config, cancel) => {
     ...config.header,
 		Authorization: token || ''
   }
-	console.log(config)
   return config
 })
 

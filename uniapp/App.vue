@@ -3,6 +3,13 @@
 	
 	export default {
 		onLaunch: function() {
+			// 初始化使用环境
+			const env = this.$helper.getEnv()
+			if (env) {
+				this.$store.commit('SET_ENV', env)
+			}
+			
+			// 状态栏高度设置
 			uni.getSystemInfo({
 				success: function(e) {
 					// #ifndef MP

@@ -6,7 +6,8 @@ export default {
 	state: {
 		token: '',
 		url: '',
-		isLogin: false
+		isLogin: false,
+		env: 'dev'
 	},
 	mutations: {
 		SET_TOKEN(state, payload) {
@@ -22,6 +23,10 @@ export default {
 		},
 		SET_LOGIN(state, payload) {
 			state.isLogin = payload
+		},
+		SET_ENV(state, payload) {
+			state.env = payload
+			helper.setEnv(payload)
 		}
 	},
 	actions: {
